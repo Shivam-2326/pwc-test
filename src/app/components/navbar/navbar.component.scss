@@ -1,0 +1,20 @@
+.navbar-wrapper {
+    height: 55px;
+    background: lightblue;
+    box-shadow: 0px 0px 8px;
+    padding: 6px 15px;
+    display: flex;
+    align-items: center;
+
+    .logo-wrapper {
+        .logo-image {
+            height: 70px;
+            width: 70px;
+        }
+    }
+
+    .menu-items-holder {
+        display: flex;
+        margin: 6px 12px;
+    }
+}

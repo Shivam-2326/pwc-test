@@ -1,0 +1,10 @@
+<div class="navbar-wrapper">
+    <div class="logo-wrapper">
+        <img class="logo-image" src="assets/images/logo-placeholder.png" alt="Logo">
+    </div>
+    <div class="menu-wrapper">
+        <div class="menu-items-holder d-flex">
+            <menu-item *ngFor="let item of menuList" [menu]="item"></menu-item>
+        </div>
+    </div>
+</div>
