@@ -1,3 +1,10 @@
-<div class="menu-item-wrapper">
+<div class="menu-item-wrapper" [ngClass]="{'root': menu.root}">
     {{menu.label}}
+</div>
+<div *ngIf="menu.items && menu.items.length" class="menu-dropdown-wrapper" [ngClass]="{'shifted': !menu.root}">
+    <ul class="menu-drop-list">
+        <li *ngFor="let item of menu.items">
+            <menu-item [menu]="item"></menu-item>
+        </li>
+    </ul>
 </div>

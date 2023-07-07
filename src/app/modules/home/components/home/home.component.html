@@ -1,0 +1,23 @@
+<div>
+    <Navbar></Navbar>
+    <div class="app-content">
+        <div class="panel panel-default">
+            <div class="panel-heading">Lorem Impsum</div>
+            <ng-container *ngIf="readMore; then fullText; else summaryText">
+            </ng-container>
+            <ng-template #fullText>
+                <div class="panel-body">
+                    {{demoText}}
+                    <a class="link" (click)="readMore=false">...hide</a>
+                </div>
+            </ng-template>
+            <ng-template #summaryText>
+                <div class="panel-body">
+                    {{demoText | summary}}
+                    <a class="link" (click)="readMore=true">read more</a>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <Footer></Footer>
+</div>

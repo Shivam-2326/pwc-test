@@ -1,0 +1,22 @@
+.login-wrapper {
+    padding: 25px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("./../../../assets/images/login-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-form {
+    padding: 33px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 6px;
+    color: white;
+
+    .login-btn {
+        background-color: var(--color-background);
+        border-color: var(--color-background);
+    }
+}

@@ -3,20 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { MenuItemComponent } from './components/menu-item/menu-item.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NotfoundComponent } from './pages/notfound/notfound.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    MenuItemComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, LoginComponent, NotfoundComponent],
+  imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
