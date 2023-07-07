@@ -6,11 +6,12 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, NotfoundComponent],
   imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
