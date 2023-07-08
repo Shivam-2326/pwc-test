@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   readMore: boolean = false;
+  userData: any = { name: 'Demo User' };
   demoText: string = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sapien leo, lacinia
   in enim non, luctus
   facilisis ex. Mauris accumsan mi quis lacus fermentum placerat. Praesent vitae ligula nec lectus fermentum
@@ -66,7 +67,12 @@ export class HomeComponent implements OnInit {
   imperdiet
   nisl. Aliquam`;
 
-  constructor() {}
+  constructor() {
+    let data = localStorage.getItem('userData');
+    if (data) {
+      this.userData = JSON.parse(data);
+    }
+  }
 
   ngOnInit(): void {}
 }

@@ -7,9 +7,12 @@ import jwt_decode from 'jwt-decode';
 })
 export class AuthService {
   private token: string =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJhZG1pbiI6dHJ1ZX0.F-cvL2RcfQhUtCavIM7q7zYE8drmj2LJk0JRkrS6He4';
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlNoaXZhbSBLdW1hciIsImlhdCI6MTUxNjIzOTAyMiwiYWRtaW4iOnRydWV9.8IQRcx-Vf1GazQ3yuonaDoUBbtrJESpHHbOjj7IHfVg';
 
-  constructor(private router: Router) {}
+  sessionTimeout: any;
+  constructor(private router: Router) {
+    this.refreshSession();
+  }
 
   getToken() {
     return this.token;
@@ -17,12 +20,15 @@ export class AuthService {
 
   login(credentials: any): boolean {
     if (
-      true ||
+      true || // Bypass the authentication
       (credentials.username == 'shivam.kumar@gmail.com' &&
         credentials.password == 'Shivam@123')
     ) {
       localStorage.setItem('token', this.token);
       console.log(this.getDecodedAccessToken(this.token));
+      let userData = JSON.stringify(this.getDecodedAccessToken(this.token));
+      localStorage.setItem('userData', userData);
+
       return true;
     }
     return true;
@@ -47,5 +53,14 @@ export class AuthService {
 
   isTokenValid(token: string | null) {
     return token === this.token;
+  }
+
+  refreshSession() {
+    if (this.sessionTimeout) {
+      clearTimeout(this.sessionTimeout);
+    }
+    this.sessionTimeout = setTimeout(() => {
+      this.logout();
+    }, 15 * 60 * 1000);
   }
 }

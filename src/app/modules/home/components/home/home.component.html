@@ -2,7 +2,7 @@
     <Navbar></Navbar>
     <div class="app-content">
         <div class="panel panel-default">
-            <div class="panel-heading">Lorem Impsum</div>
+            <div class="panel-heading">Welcome {{userData.name}}</div>
             <ng-container *ngIf="readMore; then fullText; else summaryText">
             </ng-container>
             <ng-template #fullText>
