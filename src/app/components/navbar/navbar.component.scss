@@ -7,6 +7,19 @@
     align-items: center;
     justify-content: space-between;
 
+    .bar {
+        background: black;
+        border-radius: 8px;
+        height: 3px;
+        width: 24px;
+        margin-bottom: 4px;
+    }
+
+    .menu-toggle-btn {
+        visibility: hidden;
+        cursor: pointer;
+    }
+
     .navbar-left {
         display: flex;
         align-items: center;
@@ -26,6 +39,9 @@
     }
 
     .logo-wrapper {
+        position: relative;
+        left: -21px;
+
         .logo-image {
             height: 150px;
             width: 150px;
@@ -35,5 +51,39 @@
     .menu-items-holder {
         display: flex;
         margin: 6px 12px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .navbar-wrapper .menu-toggle-btn {
+        visibility: visible;
+    }
+
+    .navbar-wrapper {
+        .logo-wrapper {
+            position: relative;
+            left: 0px;
+        }
+    }
+
+    .menu-wrapper {
+        .menu-items-holder {
+            flex-direction: column;
+            background-color: var(--color-background);
+            height: 100vh;
+        }
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .menu-wrapper.responsive {
+        position: absolute;
+        top: 41px;
+        left: -171px;
+
+        &.show-menu {
+            left: -11px;
+            top: 39px;
+        }
     }
 }

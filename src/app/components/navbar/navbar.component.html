@@ -1,9 +1,14 @@
 <div class="navbar-wrapper">
     <div class="navbar-left">
+        <div class="menu-toggle-btn" (click)="toggleSideMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
         <div class="logo-wrapper">
             <img class="logo-image" src="assets/images/logo-placeholder.png" alt="Logo">
         </div>
-        <div class="menu-wrapper">
+        <div class="menu-wrapper responsive" [ngClass]="{'show-menu': sideMenuVisibility}">
             <div class="menu-items-holder d-flex">
                 <menu-item *ngFor="let item of menuList" [menu]="item"></menu-item>
             </div>

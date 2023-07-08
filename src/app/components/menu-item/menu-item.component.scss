@@ -6,7 +6,7 @@
     min-width: 86px;
     cursor: pointer;
     height: 46px;
-    width: 146px;
+    width: 160px;
 
     &.root {}
 
@@ -50,4 +50,13 @@
 
 .menu-dropdown-wrapper:hover {
     visibility: visible;
+}
+
+
+
+@media screen and (max-width: 760px) {
+    .menu-dropdown-wrapper {
+        top: 51px;
+        left: 158px;
+    }
 }
